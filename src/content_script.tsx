@@ -1,9 +1,16 @@
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-  if (msg.color) {
-    console.log("Receive color = " + msg.color);
-    document.body.style.backgroundColor = msg.color;
-    sendResponse("Change color to " + msg.color);
-  } else {
-    sendResponse("Color message is none.");
+
+const observer = new MutationObserver(mutations => {
+  var aTags = document.getElementsByTagName("span");
+  var searchText = "Pro";
+  for (var i = 0; i < aTags.length; i++) {
+    if (aTags[i].textContent == searchText) {
+      (aTags[i] as any).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.opacity = '55%';
+      (aTags[i] as any).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style["pointer-events"] = 'none'; 
+    }
   }
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true,
 });

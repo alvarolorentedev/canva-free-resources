@@ -1,35 +1,21 @@
 {
   "manifest_version": 3,
-
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "Canva Free Filter",
+  "description": "Chrome Extension for canva.com filter free resources",
   "version": "1.0",
-
-  "options_ui": {
-    "page": "options.html"
-  },
-
   "action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "icon.png"
   },
-
   "content_scripts": [
       {
-          "matches": ["<all_urls>"],
+          "matches": ["https://www.canva.com/*"],
           "js": ["js/vendor.js", "js/content_script.js"]
       }
   ],
-
   "background": {
     "service_worker": "js/background.js"
   },
-
-  "permissions": [
-    "storage"
-  ],
-
   "host_permissions": [
-    "<all_urls>"
+    "https://www.canva.com/*"
   ]
 }
