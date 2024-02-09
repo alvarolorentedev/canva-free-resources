@@ -29,6 +29,7 @@ jobs:
         extensionDir: 'dist'
         zipFilePath: 'dist/canva-free-filter-extension.zip'
     - uses: cardinalby/webext-buildtools-chrome-crx-action@v2
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         zipFilePath: 'dist/canva-free-filter-extension.zip'
         crxFilePath: 'dist/canva-free-filter-extension.crx'
