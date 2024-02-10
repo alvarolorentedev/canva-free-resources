@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Canva Free Filter",
   "description": "Chrome Extension for canva.com filter free resources",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "icons": {
     "16": "icon16.png",
     "32": "icon32.png",
@@ -14,8 +14,5 @@
           "matches": ["https://www.canva.com/*"],
           "js": ["js/content_script.js"]
       }
-  ],
-  "host_permissions": [
-    "https://www.canva.com/*"
   ]
 }
