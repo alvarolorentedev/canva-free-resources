@@ -1,15 +1,20 @@
 {
   "manifest_version": 3,
-  "id": "canvafreefilter@alvarolorente.dev",
   "name": "Canva Free Filter",
   "description": "Chrome Extension for canva.com filter free resources",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "icons": {
     "16": "icon16.png",
     "32": "icon32.png",
     "48": "icon48.png",
     "128": "icon128.png"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "canvafreefilter@alvarolorente.dev",
+      "strict_min_version": "42.0"
+    }
+  },  
   "content_scripts": [
       {
           "matches": ["https://www.canva.com/*"],
