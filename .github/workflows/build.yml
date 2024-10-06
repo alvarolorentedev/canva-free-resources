@@ -42,4 +42,3 @@ jobs:
         files: |
           'dist/canva-free-filter-extension.zip'
           'dist/canva-free-filter-extension.crx'
-          ${{ steps.web-ext-sign.outputs.target }}
