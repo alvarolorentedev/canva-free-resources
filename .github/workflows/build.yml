@@ -35,24 +35,6 @@ jobs:
         zipFilePath: 'dist/canva-free-filter-extension.zip'
         crxFilePath: 'dist/canva-free-filter-extension.crx'
         privateKey: ${{ secrets.CHROME_CRX_PRIVATE_KEY }}
-    - name: Firefox Pack Extension
-      if: startsWith(github.ref, 'refs/tags/')
-      id: web-ext-build
-      uses: kewisch/action-web-ext@v1
-      with:
-        cmd: build
-        source: dist
-    - name: Firefox Sign Extension
-      if: startsWith(github.ref, 'refs/tags/')
-      id: web-ext-sign
-      uses: kewisch/action-web-ext@v1
-      with:
-        cmd: sign
-        source: ${{ steps.web-ext-build.outputs.target }}
-        channel: listed
-        apiKey: ${{ secrets.AMO_SIGN_KEY }}
-        apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
-        timeout: 900000
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
